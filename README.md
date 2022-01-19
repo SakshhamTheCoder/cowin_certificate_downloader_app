@@ -1,8 +1,8 @@
-# cowin_certificate_downloader
+# CoWin Certificate Downloader
 
-A new Flutter project.
+An app made in Flutter App Framework to view and download vaccination certificates from Cowin by authenticating via OTP and providing Beneficiary Reference ID.
 
-## Getting Started
+## Getting Started (For new Flutter Devs)
 
 This project is a starting point for a Flutter application.
 
