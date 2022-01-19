@@ -2,12 +2,12 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:cowin_certificate_downloader/globals.dart' as globals;
 import 'package:crypto/crypto.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
-import 'package:cowin_certificate_downloader/globals.dart' as globals;
 
 import 'home.dart';
 
@@ -69,7 +69,6 @@ class _OTPPage extends State<OTPPage> {
         ));
       }
     }
-    // throw Exception('http.post error: statusCode= ${res.statusCode}');
   }
 
   @override
@@ -95,7 +94,6 @@ class _OTPPage extends State<OTPPage> {
         ),
         Container(
           alignment: Alignment.bottomCenter,
-          // height: MediaQuery.of(context).size.height * 5,
           width: double.infinity,
           child: Card(
             margin: const EdgeInsets.all(30),
@@ -119,7 +117,6 @@ class _OTPPage extends State<OTPPage> {
                       prefixIcon: Icon(Icons.phone),
                       counterText: "",
                       labelText: "Enter OTP",
-                      // labelStyle: TextStyle(color: Colors.black54),
                       focusColor: Color(0xaa025eba),
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Color(0xaa025eba))),

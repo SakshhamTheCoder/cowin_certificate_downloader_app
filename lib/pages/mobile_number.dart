@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:cowin_certificate_downloader/globals.dart' as globals;
 import 'package:cowin_certificate_downloader/pages/otp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
-import 'package:cowin_certificate_downloader/globals.dart' as globals;
 
 class MobileNumberPage extends StatefulWidget {
   const MobileNumberPage({Key? key}) : super(key: key);
@@ -36,18 +36,7 @@ class _MobileNumberPage extends State<MobileNumberPage> {
       return;
     }
     globals.sentMno = mNo;
-    // dynamic json = "{'mobile': '${mNo.toString()}'}";
-    // Map<String, String> json2 = {"mobile": mNo.toString()};
-    // print(json);
-    // Map<String, String> headers = {
-    //   "accept": "application/json",
-    //   "Content-type": "application/json"
-    // };
-    // var data = '{"mobile":"${mNo.toString()}"';
 
-    // final r = await http.post(baseUrl + "/v2/auth/public/generateOTP",
-    //     headers: headers, body: json2);
-    // print(r.content());
     try {
       var headers = {
         'accept': 'application/json',
@@ -108,7 +97,6 @@ class _MobileNumberPage extends State<MobileNumberPage> {
         ),
         Container(
           alignment: Alignment.bottomCenter,
-          // height: MediaQuery.of(context).size.height * 5,
           width: double.infinity,
           child: Card(
             margin: const EdgeInsets.all(30),
@@ -132,7 +120,6 @@ class _MobileNumberPage extends State<MobileNumberPage> {
                       prefixIcon: Icon(Icons.phone),
                       counterText: "",
                       labelText: "Phone Number",
-                      // labelStyle: TextStyle(color: Colors.black54),
                       focusColor: Color(0xaa025eba),
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Color(0xaa025eba))),

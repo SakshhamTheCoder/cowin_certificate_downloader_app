@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:cowin_certificate_downloader/globals.dart' as globals;
-import 'package:cowin_certificate_downloader/pages/otp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -47,17 +46,12 @@ class _HomePage extends State<HomePage> {
         'Authorization': 'Bearer ${globals.myObj2['token']}',
       };
 
-      // var params = {
-      // 'beneficiary_reference_id': "$benifid",
-      // };
-      // var query = params.entries.map((p) => '${p.key}=${p.value}').join('&');
       var res = await http.get(
           'https://cdn-api.co-vin.in/api/v2/registration/certificate/public/download?beneficiary_reference_id=$benifid',
           headers: headers);
       if (res.statusCode == 200) {
         print(res.headers);
         x.close();
-        // print(res.bodyBytes);
         var bytes =
             base64Decode(base64.encode(res.bodyBytes).replaceAll('\n', ''));
         final output = await getTemporaryDirectory();
@@ -67,10 +61,6 @@ class _HomePage extends State<HomePage> {
         print("${output.path}/certificate.pdf");
         await OpenFile.open("${output.path}/certificate.pdf");
         setState(() {});
-        // globals.myObj3 =
-        // print(globals.myObj3['txnId']);
-        // Navigator.pushReplacement(
-        //     context, MaterialPageRoute(builder: (context) => const OTPPage()));
       } else {
         scaffold.showSnackBar(const SnackBar(
           content: Text("Invalid Beneficiary ID Entered"),
@@ -108,7 +98,6 @@ class _HomePage extends State<HomePage> {
         ),
         Container(
           alignment: Alignment.bottomCenter,
-          // height: MediaQuery.of(context).size.height * 5,
           width: double.infinity,
           child: Card(
             margin: const EdgeInsets.all(30),
@@ -132,7 +121,6 @@ class _HomePage extends State<HomePage> {
                       prefixIcon: Icon(Icons.pin),
                       counterText: "",
                       labelText: "Beneficiary ID",
-                      // labelStyle: TextStyle(color: Colors.black54),
                       focusColor: Color(0xaa025eba),
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Color(0xaa025eba))),
